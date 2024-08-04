@@ -26,6 +26,8 @@ namespace WebApplication2.Services
 
         public async Task<Conciertos> addConcertService(Conciertos concierto)
         {
+            try
+            {
             Conciertos newConcert = new Conciertos
             {
                 address = concierto.address,
@@ -36,6 +38,12 @@ namespace WebApplication2.Services
             await dbContext.AddAsync(newConcert);
             await dbContext.SaveChangesAsync();
             return newConcert;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
     }
 }
