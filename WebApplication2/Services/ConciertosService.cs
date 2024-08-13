@@ -24,17 +24,11 @@ namespace WebApplication2.Services
             }
         }
 
-        public async Task<Conciertos> addConcertService(Conciertos concierto)
+        public async Task<Conciertos> AddConcertService(Conciertos concierto)
         {
             try
             {
-            Conciertos newConcert = new Conciertos
-            {
-                address = concierto.address,
-                city = concierto.city,
-                title = concierto.title,
-                description = concierto.description
-            };
+            var newConcert = new Conciertos(concierto);
             await dbContext.AddAsync(newConcert);
             await dbContext.SaveChangesAsync();
             return newConcert;

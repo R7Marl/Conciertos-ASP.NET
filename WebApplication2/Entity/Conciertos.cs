@@ -7,5 +7,14 @@
         public string description { get; set; } = string.Empty;
         public string city { get; set; } = string.Empty;
         public string address { get; set; } = string.Empty;
+        public Conciertos() { }
+    
+        public Conciertos(Conciertos concierto)
+        {
+            this.title = concierto.title;
+            this.description = concierto.description;
+            this.city = concierto.city;
+            this.address = concierto.address;
+        }
     }
 }
